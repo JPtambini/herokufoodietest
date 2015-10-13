@@ -4,9 +4,10 @@ require './models'
 
 enable :sessions
 
-set :database, "sqlite3:foodie_base.sqlite3"
+configure(:development){set :database, "sqlite3:foodie_base.sqlite3"}
+# set :database, "sqlite3:foodie_base.sqlite3"
 
-time=Time.now
+
 def add_user(params)
 	User.create(fname:params[:first_name], lname:params[:last_name],uname:params[:username],password: params[:password],email:params[:email],location:params[:location], date_time:"#{time.year}-#{time.month}-#{time.day} [#{time.hour}:#{time.min}:#{time.sec}]")
 end
@@ -18,7 +19,7 @@ def current_user
 end
 
 def add_post(params)
-time=Time.now
+
 	Post.create(name:params[:enter_name], subject:params[:topic_subject], body:params[:text_body], date_time:"#{time.year}-#{time.month}-#{time.day} [#{time.hour}:#{time.min}:#{time.sec}]" ,user_id:current_user.id)
 end
 
