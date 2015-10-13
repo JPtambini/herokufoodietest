@@ -1,0 +1,28 @@
+<div id="post">
+    
+    <div>
+        <h1 id="post_h1">Profile</h1>
+    </div>
+    <div id="profile_info">
+        <ul>
+            <li>Name:  <%= User.find(@follow_id).fname.capitalize%> <%= User.find(@follow_id).lname.capitalize%></li>
+            <li>Username: <%=  User.find(@follow_id).uname%></li>
+            <li>Email:  <%= User.find(@follow_id).email%></li>
+            <li>Location: <%=  User.find(@follow_id).location%></li>
+        </ul>
+    </div>
+    
+    
+    <div>
+        <h1 id="post_h1">Posts</h1>
+    </div>
+    <div id="old_posts">
+        <%@post=Post.where(user_id: @follow_id)%>
+        <% @post.reverse.each do |post| %>
+            <h5><%=post.subject%><h5>
+            <h6><%=post.date_time%></h6>
+            <p><%=post.body%></p>   
+        <%end %>
+    </div>
+    
+</div>

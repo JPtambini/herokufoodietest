@@ -1,0 +1,29 @@
+<div id="post">
+
+    <div>
+        <h1 id="post_h1">Posts</h1>
+    </div
+    >
+    <div id="old_posts">
+        <%@post=Post.where(user_id: current_user.id)%>
+        <% @post.reverse.each do |post| %>
+            <h5><%=post.subject%><h5>
+            <h6><%=post.date_time%></h6>
+            <p><%=post.body%></p>   
+        <%end %>
+    </div>
+    
+    <form id ="post_form" method="POST" action="/post_feed">
+        <div id="post_form_field">
+            <input id="post_field" type="text" name="topic_subject" placeholder="Topic">
+        </div>
+        <div id="post_text">
+            <textarea type="text" name="text_body" rows="15" cols="80" placeholder="Please Enter comments or posts here. THANK YOU!!!">
+            </textarea>
+        </div>
+        <div id="post_submit">
+        <button>Submit</button>
+        </div>
+    </form>
+</div>
+

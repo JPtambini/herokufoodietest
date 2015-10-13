@@ -1,0 +1,49 @@
+<div id="edit">
+    <div id="edit_left">
+        <h3>Account Info / Edit </h3>
+    </div>
+    <div>
+        <form id= "edit_form" method="POST" action="/edit-page">
+            <div class="edit_col">
+                <h3 class="edit_tittle" >First name</h3>
+                <input class="edit_field" type="text" name="first_name" value=<%= current_user.fname %>>            
+            </div>
+            <div class="edit_col">
+                <h3 class="edit_tittle" >Last name</h3>                            
+                <input class="edit_field" type="text" name="last_name" value=<%= current_user.lname %>>
+            </div>                                                                                                          
+            <div class="edit_col">
+                <h3 class="edit_tittle">Username</h3>
+                <input class="edit_field" type="text" name="username" value=<%= current_user.uname %>>
+            </div>
+            <div class="edit_col">
+                <h3 class="edit_tittle">Password</h3>
+                <input class="edit_field" type="text" name="password" value=<%= current_user.password %>>
+            </div>
+            <div class="edit_col">
+                <h3 class="edit_tittle">E-mail</h3>
+                <input class="edit_field" type="text" name="email" value=<%= current_user.email %>>
+            </div>    
+            <div class="edit_col">
+                <h3 class="edit_tittle">City and State</h3>
+                <input class="edit_field" type="text" name="location" value=<%= current_user.location %>>
+            </div>
+            <div class="edit_col">
+                <h3 class="edit_tittle">Change picture</h3>
+                <input type="file" name="pic" accept="image/*">
+            </div>
+            <div id="confirm_bottom">
+                <input class="bottom" type="submit" value="Comfirm">
+            </div>
+            <div id="edit_reset_bottom">
+                <input class="bottom" type="reset" value="Reset">
+            </div>
+        </form>
+    <div>
+        <form id="del_acc" method= "POST" action="/del_page">
+            <input class="bottom" type="submit" value="Delete Account">
+        </form>
+    </div>
+    <div id="edit_right">
+    </div>
+</div>
